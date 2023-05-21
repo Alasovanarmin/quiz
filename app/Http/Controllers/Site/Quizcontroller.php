@@ -13,12 +13,6 @@ class Quizcontroller extends Controller
 {
     public function index()
     {
-        //Sladjasndkasdsjadbakjsbdakksajdnkajn
-
-
-
-
-
         $quizzes = Quiz::query()
             ->where('status',1)
             ->withCount('questions')

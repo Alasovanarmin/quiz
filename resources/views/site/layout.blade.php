@@ -40,7 +40,7 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Quiz Page</a>
+                    <a class="nav-link" href="{{route('quizzes')}}">Quiz Page</a>
                 </li>
             </ul>
             <!-- Left links -->
@@ -52,9 +52,9 @@
                 </a>
                 <a
                     class="btn btn-dark px-3"
-                    href="https://github.com/mdbootstrap/mdb-ui-kit"
+                    href="{{ route("profile") }}"
                     role="button"
-                > Narmin Alasova </i> </a>
+                > {{auth()->guard('site')->user()->name . " ". auth()->guard('site')->user()->surname}} </i> </a>
                 @endif
 
             </div>

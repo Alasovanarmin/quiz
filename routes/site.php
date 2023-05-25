@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\AuthenticationController;
 use App\Http\Controllers\Site\Quizcontroller;
+use App\Http\Controllers\Site\Usercontroller;
 
 
 Route::redirect("/", "/login");
@@ -20,4 +21,8 @@ Route::group(['middleware'=>'authCheckSite'],function (){
     Route::get("/quiz/{id}", [Quizcontroller::class, 'detail'])->name("quiz.detail");
     Route::get("/quiz/join/{id}", [Quizcontroller::class, 'join'])->name("quiz.join");
     Route::post("/quiz/finish/{id}", [Quizcontroller::class, 'finish'])->name("quiz.finish");
+
+    Route::get("/profile", [UserController::class, 'profile'])->name("profile");
+    Route::post("/profile/update", [UserController::class, 'profileUpdate'])->name("profileUpdate");
+    Route::post("/profile/changePassword", [UserController::class, 'changePassword'])->name("changePassword");
 });

@@ -26,18 +26,12 @@
                 <div class="card-header">
                     Quizzes you join
                 </div>
+                @foreach($quizzesYouJoin as $quizzesYoujoin)
                 <ul class="list-group list-group-flush">
-
                     <li class="list-group-item">
-                        92 -<a href=""> QUIZ TITLE</a>
+                        {{$loop->index+1}} -<a href="{{route('quiz.detail',$quizzesYoujoin->quiz_id)}}">{{$quizzesYoujoin->title}}}</a>
                     </li>
-                    <li class="list-group-item">
-                        16 -<a href=""> QUIZ TITLE</a>
-                    </li>
-                    <li class="list-group-item">
-                        26 -<a href=""> QUIZ TITLE</a>
-                    </li>
-
+                 @endforeach
                 </ul>
             </div>
         </div>

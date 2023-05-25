@@ -18,20 +18,19 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
-            'name' => 'required|string|max:100',
+            'title' => 'required|string|max:100',
         ]);
 
-            Quiz::query()
-                ->create([
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'status' => $request->status,
-                    'category_id' => $request->category_id
-                ]);
+        Quiz::query()
+            ->create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status,
+                'category_id' => $request->category_id
+            ]);
 
-            return redirect()->route('dashboard.quizzes')->with("success","created successfully");
+        return redirect()->route('dashboard.quizzes')->with("success","created successfully");
     }
 
     public function index()
